@@ -1,0 +1,82 @@
+body {
+    background-color: aquamarine;
+    height: 120vh;
+}
+
+.container {
+    background-color: cornflowerblue;
+    width: 60%;
+    height: 70%;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 4);
+    text-align: center;
+}
+
+p {
+    font-size: 40px;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+label {
+    font-family: bold;
+}
+
+input {
+    background-color: bisque;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-size: 15px;
+    width: 60%;
+    font-family: elephant;
+}
+
+input:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 4);
+    background-color: azure;
+    color: salmon;
+}
+
+button {
+    width: 60%;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    background-color: lightskyblue;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: tomato;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: goldenrod;
+    color: wheat;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 4);
+    padding: 9px;
+}
+
+#gender {
+    background-color: bisque;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-size: 15px;
+    width: 60%;
+    font-family: elephant;
+}
+
+select:hover {
+   cursor: pointer;
+    background-color: goldenrod;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 4);
+    padding: 9px; 
+}

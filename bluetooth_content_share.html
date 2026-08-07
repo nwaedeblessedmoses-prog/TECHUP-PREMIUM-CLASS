@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura — Next-Gen Creative Studio</title>
+  <style>
+    /* Reset & CSS Variables */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    :root {
+      --bg-dark: #0b0f19;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --primary-gradient: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+      --glow-gradient: radial-gradient(circle at 50% 20%, rgba(139, 92, 246, 0.25) 0%, rgba(11, 15, 25, 0) 70%);
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: var(--glow-gradient);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary-gradient);
+      color: #ffffff;
+      box-shadow: 0 4px 20px rgba(236, 72, 153, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(236, 72, 153, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 80px 0 60px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #c084fc;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 span {
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+    }
+
+    /* Vector SVG Image Container */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-visual svg {
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+    }
+
+    /* Feature Cards Section */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      padding: 60px 0 100px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 32px;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(139, 92, 246, 0.4);
+      transform: translateY(-4px);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      border-top: 1px solid var(--card-border);
+      padding: 32px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 40px 0;
+      }
+
+      .hero-content h1 {
+        font-size: 2.3rem;
+      }
+
+      .cta-group {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <nav>
+      <div class="logo">Aura.ai</div>
+      <div class="nav-links">
+        <a href="#" class="nav-link">Features</a>
+        <a href="#" class="nav-link">Pricing</a>
+        <a href="#" class="btn btn-primary">Get Started</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="badge">✨ Next Generation 2.0</div>
+        <h1>Design stunning digital experiences <span>effortlessly</span>.</h1>
+        <p>Empower your workflow with real-time vector visuals, fluid layouts, and lightning-fast web assets built for modern creators.</p>
+        <div class="cta-group">
+          <a href="#" class="btn btn-primary">Start Building Free</a>
+          <a href="#" class="btn btn-secondary">Explore Demo</a>
+        </div>
+      </div>
+
+      <!-- <div class="hero-visual"> -->
+        <!-- <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="40" width="440" height="320" rx="16" fill="#131a2a" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+          <circle cx="60" cy="70" r="6" fill="#ef4444"/>
+          <circle cx="80" cy="70" r="6" fill="#f59e0b"/>
+          <circle cx="100" cy="70" r="6" fill="#10b981"/>
+         
+          <path d="M120 280 L220 160 L300 220 L380 120" stroke="url(#lineGradient)" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="220" cy="160" r="8" fill="#ec4899"/>
+          <circle cx="300" cy="220" r="8" fill="#8b5cf6"/>
+          <circle cx="380" cy="120" r="10" fill="#3b82f6"/>
+
+          <rect x="260" y="220" width="170" height="100" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" backdrop-filter="blur(10px)"/>
+          <rect x="280" y="245" width="80" height="8" rx="4" fill="#8b5cf6"/>
+          <rect x="280" y="265" width="130" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+          <rect x="280" y="280" width="100" height="6" rx="3" fill="rgba(255,255,255,0.1)"/> -->
+
+          <defs>
+            <linearGradient id="lineGradient" x1="120" y1="280" x2="380" y2="120" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#8b5cf6"/>
+              <stop offset="0.5" stop-color="#ec4899"/>
+              <stop offset="1" stop-color="#3b82f6"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Ultra Responsive</h3>
+        <p>Built with modern CSS Grid and Flexbox to automatically adjust perfectly on any screen size.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎨</div>
+        <h3>Glassmorphism UI</h3>
+        <p>Uses modern backdrop filters and subtle glow effects for a high-end, premium aesthetic.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>Infinitely Scalable</h3>
+        <p>Includes vector-based SVG graphics that remain crystal clear no matter how high you zoom.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Aura Creative Studio. All rights reserved.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
